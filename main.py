@@ -1,5 +1,5 @@
 # Encoder and Menu created by Harrison Lucas
-
+# decode() by David Hochman
 
 def encode(password):
     num1 = ''
@@ -14,6 +14,38 @@ def encode(password):
         elif int(i) == 9:
             num1 += '2'
     return num1
+
+
+def decode(password):
+    password = list(password)
+    for i in range(0, len(password)):
+        if password[i] == '0':  # changes numbers in passcode
+            password[i] = 7
+        elif password[i] == '1':
+            password[i] = 8
+        elif password[i] == '2':
+            password[i] = 9
+        elif password[i] == '3':
+            password[i] = 0
+        elif password[i] == '4':
+            password[i] = 1
+        elif password[i] == '5':
+            password[i] = 2
+        elif password[i] == '6':
+            password[i] = 3
+        elif password[i] == '7':
+            password[i] = 4
+        elif password[i] == '8':
+            password[i] = 5
+        elif password[i] == '9':
+            password[i] = 6
+        else:
+            pass
+
+    password = map(str, password)
+    password = "".join(password)  # joins numbers in passcode
+
+    return password
 
 
 def menu():
